@@ -1,0 +1,17 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# you can put key/value pairs here.
+# Use Config.getParameter(..) to retrieve the values during runtime.
+
+expertSoftTestAddon.key=value
+
+# Specifies the location of the spring context file added automatically to the global platform application context.
+expertSoftTestAddon.application-context=expertSoftTestAddon-spring.xml
+
+yacceleratorstorefront.additionalWebSpringConfigs.expertSoftTestAddon=classpath:/expertSoftTestAddon/web/spring/expertSoftTestAddon-web-spring.xml
+
+
+
+expertSoftTestAddon.javascript.paths.responsive=/responsive/common/js/expertSoftTestAddon.js
+expertSoftTestAddon.css.paths.responsive=/responsive/common/css/expertSoftTestAddon.css
