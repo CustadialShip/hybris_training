@@ -1,0 +1,4 @@
+INSERT_UPDATE Concert; band(code); venue             ; date[dateformat = dd.MM.yyyy]; concertType(code)
+                     ; B01       ; "Belarus, Minsk"  ; 10.10.2022                   ; indoor
+                     ; B02       ; "USA, New York"   ; 20.12.2022                   ; openair
+                     ; B03       ; "Germany, Berlin" ; 15.06.2022                   ; openair

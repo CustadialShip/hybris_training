@@ -1,0 +1,7 @@
+INSERT_UPDATE Band; code[unique = true]; name  ; albumSales
+                  ; B01                ; Band1 ; 100
+                  ; B02                ; Band2 ; 200
+                  ; B03                ; Band3 ; 300
+                  ; B04                ; Band4 ; 400
+                  ; B05                ; Band5 ; 500
+                  ; B06                ; Band6 ; 600

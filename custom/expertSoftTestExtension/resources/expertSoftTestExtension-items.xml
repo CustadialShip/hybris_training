@@ -6,7 +6,7 @@
 	ATTENTION: This is just an example file. You have to edit it according to your needs.
 -->
 
-<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:noNamespaceSchemaLocation="items.xsd">
 
 	<collectiontypes>
@@ -54,6 +54,10 @@
 
 		<itemtype generate="true" code="Concert" extends="VariantProduct" autocreate="true">
 			<attributes>
+				<attribute qualifier="band" type="Band">
+					<description>band, that will perform</description>
+					<persistence type="property" />
+				</attribute>
 				<attribute qualifier="venue" type="java.lang.String">
 					<description>venue of concert</description>
 					<persistence type="property" />
@@ -110,6 +114,26 @@
 				</attribute>
 				<attribute qualifier="city" type="java.lang.String">
 					<description>city of band</description>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype generate="true"
+				  code="Instrument"
+				  jaloclass="org.training.jalo.Instrument"
+				  extends="GenericItem"
+				  autocreate="true">
+			<deployment table="Instruments" typecode="30767"/>
+			<attributes>
+				<attribute qualifier="name" type="java.lang.String">
+					<description>Name of instrument</description>
+					<modifiers initial="true"/>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="description" type="java.lang.String">
+					<description>Description of instrument</description>
+					<modifiers initial="true"/>
 					<persistence type="property"/>
 				</attribute>
 			</attributes>
