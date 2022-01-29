@@ -1,0 +1,14 @@
+INSERT_UPDATE Dish; code[unique = true]; name      ; cookingTime; calories
+                  ; D01                ; dishName1 ; 1.5        ; 100
+                  ; D02                ; dishName2 ; 2.5        ; 400
+                  ; D03                ; dishName3 ; 3.5        ; 300
+
+INSERT_UPDATE Ingredient; code[unique = true]; name
+                        ; I01                ; ingredientNam1
+                        ; I02                ; ingredientNam2
+                        ; I03                ; ingredientNam3
+
+INSERT_UPDATE Supplier; code[unique = true]; name      ; rating(code)
+                      ; S01                ; supplier1 ; low
+                      ; S02                ; supplier2 ; middle
+                      ; S03                ; supplier3 ; high
