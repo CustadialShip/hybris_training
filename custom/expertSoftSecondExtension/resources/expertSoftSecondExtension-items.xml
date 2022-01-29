@@ -6,35 +6,91 @@
 	ATTENTION: This is just an example file. You have to edit it according to your needs.
 -->
 
-<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			xsi:noNamespaceSchemaLocation="items.xsd">
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
 
-	<itemtypes>
-<!--
-		<itemtype generate="true"
-		   code="MyProduct"
-		   jaloclass="org.training.jalo.MyProduct"
-		   extends="Product"
-		   autocreate="true"
-	   >
-			<attributes>
-				<attribute qualifier="myExampleInitialStringField" type="java.lang.String">
-					<description>My Example Initial String Value</description>
-					<modifiers initial="true"/>
-					<persistence type="property"/>
-				</attribute>
+    <enumtypes>
+        <enumtype code="RatingValue" autocreate="true" generate="true" dynamic="false">
+            <value code="low"/>
+            <value code="middle"/>
+            <value code="high"/>
+        </enumtype>
+    </enumtypes>
 
-				<attribute qualifier="myExampleBooleanField" type="java.lang.Boolean">
-					<description>Example Initial Boolean Field</description>
-               <persistence type="property"/>
-				</attribute>
+	<relations>
+		<relation code="Ingredient2Dish" localized="false" autocreate="true" generate="false">
+            <sourceElement qualifier="ingredients" type="Ingredient"  cardinality="many" collectiontype="set" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="dishes" type="Dish" cardinality="one">
+				<modifiers read="true" write="true" search="true" optional="true"/>
+			</targetElement>
+		</relation>
 
-				<attribute qualifier="media" type="Media">
-					<persistence type="property"/>
-				</attribute>
+		<relation code="Supplier2Ingredient" localized="false" autocreate="true" generate="false">
+            <deployment table="Supplier2Ingredient" typecode="17174"/>
+			<sourceElement qualifier="suppliers" type="Supplier" cardinality="many" collectiontype="set" ordered="false">
+				<modifiers read="true" write="true" search="true" optional="true"/>
+			</sourceElement>
+			<targetElement qualifier="ingredients" type="Ingredient" cardinality="many">
+				<modifiers read="true" write="true" search="true" optional="true"/>
+			</targetElement>
+		</relation>
+	</relations>
 
-			</attributes>
-		</itemtype>
--->
-	</itemtypes>
+    <itemtypes>
+        <itemtype code="Dish" autocreate="true" generate="true">
+            <deployment table="Dishes" typecode="12124"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Code of Dish</description>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Name of Dish</description>
+                </attribute>
+                <attribute qualifier="cookingTime" type="java.lang.Double">
+                    <persistence type="property"/>
+                    <description>Time of cooking of dish in hours</description>
+                </attribute>
+                <attribute qualifier="calories" type="java.lang.Integer">
+                    <persistence type="property"/>
+                    <description>Value of calories in dish</description>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Ingredient" autocreate="true" generate="true">
+            <deployment table="Ingredients" typecode="13134"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Code of Ingredient</description>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Name of Ingredient</description>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Supplier" autocreate="true" generate="true">
+            <deployment table="Suppliers" typecode="14144"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Code of Supplier</description>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Name of Supplier</description>
+                </attribute>
+                <attribute qualifier="rating" type="RatingValue">
+                    <persistence type="property"/>
+                    <description>Rating of Supplier</description>
+                </attribute>
+            </attributes>
+        </itemtype>
+    </itemtypes>
 </items>
