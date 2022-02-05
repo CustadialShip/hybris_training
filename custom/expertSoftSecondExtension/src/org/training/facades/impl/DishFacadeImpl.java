@@ -1,7 +1,9 @@
 package org.training.facades.impl;
 
+import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.exceptions.AmbiguousIdentifierException;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.training.data.DishSummaryData;
 import org.training.facades.DishFacade;
@@ -13,17 +15,19 @@ import java.util.List;
 
 @Component
 public class DishFacadeImpl implements DishFacade {
-    public static final String ERROR_EMPTY_CODE_OF_DISH = "Error: empty code of dish";
+    public static final String ERROR_EMPTY_CODE_OF_DISH = "error.emptyCode";
     private final DishService dishService;
+    private final ConfigurationService configurationService;
 
-    public DishFacadeImpl(DishService dishService) {
+    public DishFacadeImpl(DishService dishService, ConfigurationService configurationService) {
         this.dishService = dishService;
+        this.configurationService = configurationService;
     }
 
     @Override
     public DishSummaryData getDish(String code) {
         if (code == null) {
-            throw new IllegalArgumentException(ERROR_EMPTY_CODE_OF_DISH);
+            throw new IllegalArgumentException(configurationService.getConfiguration().getString(ERROR_EMPTY_CODE_OF_DISH));
         }
         final DishSummaryData dishSummaryData;
         try {

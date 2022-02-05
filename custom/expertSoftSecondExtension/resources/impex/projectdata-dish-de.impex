@@ -1,7 +1,9 @@
-INSERT_UPDATE Dish; code[unique = true]; name      ; cookingTime; calories
-                  ; D01                ; dishName1 ; 1.5        ; 100
-                  ; D02                ; dishName2 ; 2.5        ; 400
-                  ; D03                ; dishName3 ; 3.5        ; 300
+$lang=de
+
+INSERT_UPDATE Dish; code[unique = true]; name[lang=$lang]      ; cookingTime; calories
+                  ; D01                ; dishName1DE ; 1.5        ; 100
+                  ; D02                ; dishName2DE ; 2.5        ; 400
+                  ; D03                ; dishName3DE ; 3.5        ; 300
 
 INSERT_UPDATE Ingredient; code[unique = true]; name
                         ; I01                ; ingredientNam1
