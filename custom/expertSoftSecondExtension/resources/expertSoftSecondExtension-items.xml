@@ -38,9 +38,45 @@
                 <modifiers read="true" write="true" search="true" optional="true"/>
             </targetElement>
         </relation>
+
+        <relation code="DishNews2Dish" localized="false" autocreate="true" generate="false">
+            <sourceElement qualifier="dishNews" type="DishNews" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="dish" type="Dish" cardinality="many" collectiontype="set" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="Cook2Dish" localized="false" autocreate="true" generate="false">
+            <sourceElement qualifier="cook" type="Cook" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="dish" type="Dish" cardinality="many" collectiontype="set" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
     </relations>
 
     <itemtypes>
+        <itemtype code="Cook" autocreate="true" generate="true">
+            <deployment table="Cooks" typecode="17546"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Code of the cook</description>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <persistence type="property"/>
+                    <description>Name of the cook</description>
+                </attribute>
+                <attribute qualifier="rating" type="RatingValue">
+                    <persistence type="property"/>
+                    <description>Rating of the cook</description>
+                </attribute>
+            </attributes>
+        </itemtype>
+
         <itemtype code="Dish" autocreate="true" generate="true">
             <deployment table="Dishes" typecode="12124"/>
             <attributes>
@@ -75,10 +111,6 @@
                 <attribute qualifier="name" type="localized:java.lang.String">
                     <persistence type="property"/>
                     <description>Name of Ingredient</description>
-                </attribute>
-                <attribute qualifier="remainingNumber" type="java.lang.Long">
-                    <persistence type="dynamic" attributeHandler="ingredientRemainingNumberAttributeHandler"/>
-                    <modifiers read="true" write="false"/>
                 </attribute>
             </attributes>
         </itemtype>

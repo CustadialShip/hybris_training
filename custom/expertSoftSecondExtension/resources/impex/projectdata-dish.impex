@@ -1,9 +1,14 @@
-INSERT_UPDATE Dish; code[unique = true]; name      ; cookingTime; calories
-                  ; D01                ; dishName1 ; 1.5        ; 100
-                  ; D02                ; dishName2 ; 2.5        ; 400
-                  ; D03                ; dishName3 ; 3.5        ; 300
+$lang = en
 
-INSERT_UPDATE Ingredient; code[unique = true]; name
+INSERT_UPDATE Dish; code[unique = true]; name[lang = en]; cookingTime; calories; cook(code)
+                  ; D01                ; dishName1      ; 1.5        ; 100     ; Cook1
+                  ; D02                ; dishName2      ; 2.5        ; 400     ; Cook2
+                  ; D03                ; dishName3      ; 3.5        ; 300     ; Cook3
+                  ; D04                ; dishName4      ; 1.8        ; 100     ; Cook1
+                  ; D05                ; dishName5      ; 2.8        ; 400     ; Cook2
+                  ; D06                ; dishName6      ; 3.9        ; 300     ; Cook3
+
+INSERT_UPDATE Ingredient; code[unique = true]; name;
                         ; I01                ; ingredientNam1
                         ; I02                ; ingredientNam2
                         ; I03                ; ingredientNam3
@@ -13,5 +18,3 @@ INSERT_UPDATE Supplier; code[unique = true]; name      ; rating(code)
                       ; S02                ; supplier2 ; middle
                       ; S03                ; supplier3 ; high
 
-INSERT_UPDATE TempItem; token[unique = true]
-                      ; tokenExample
