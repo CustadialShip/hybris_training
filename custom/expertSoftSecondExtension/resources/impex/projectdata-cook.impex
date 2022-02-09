@@ -1,0 +1,4 @@
+INSERT_UPDATE Cook; code[unique = true]; name      ; rating(code)
+                  ; Cook1              ; cookName1 ; low
+                  ; Cook2              ; cookName2 ; middle
+                  ; Cook3              ; cookName3 ; high
